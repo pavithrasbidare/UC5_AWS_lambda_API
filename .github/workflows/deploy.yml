@@ -59,7 +59,7 @@ jobs:
 
       - name: Run TFLint
         run: |
-          cd Infra/Environments/${{ github.event.inputs.environment || 'dev' }}
+          cd Infra
 
           # Ensure .tflint.hcl exists
           if [ ! -f ".tflint.hcl" ]; then
@@ -83,7 +83,7 @@ jobs:
 
       - name: Run Checkov Security Scan
         run: |
-          cd Infra/Environments/${{ github.event.inputs.environment || 'dev' }}
+          cd Infra
           checkov --directory . --skip-check CKV_AWS_*,CKV2_AWS_*
 
       - name: Terraform Init
