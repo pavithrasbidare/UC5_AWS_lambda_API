@@ -7,6 +7,6 @@ module "iam" {
 }
 
 module "lamda" {
-  source = "../Modules/LAMDA"
+  source = "../Modules/LAMBDA"
   lambda_role_arn = module.iam.lambda_role
  }
