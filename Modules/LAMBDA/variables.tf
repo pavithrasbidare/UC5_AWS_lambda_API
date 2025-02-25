@@ -5,7 +5,7 @@ variable "region" {
 }
 
 variable "image_name"{
-  default="302263075199.dkr.ecr.us-east-1.amazonaws.com/hello_world:latest"
+  default="302263075199.dkr.ecr.us-west-2.amazonaws.com/hello_world:latest"
 }
 
 variable "lambda_role_arn" {
