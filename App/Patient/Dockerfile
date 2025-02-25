@@ -1,20 +1,7 @@
-# Use the official Node.js image as the base image
-FROM node:14
+FROM public.ecr.aws/lambda/nodejs:22
 
-# Set the working directory
-WORKDIR /usr/src/app
-
-# Copy package.json and package-lock.json
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy the rest of the application code
-COPY . .
-
-# Expose the port the app runs on
-EXPOSE 3000
-
-# Start the application
-CMD ["node", "patient-service.js"]
+# Copy function code
+COPY index.js ${LAMBDA_TASK_ROOT}
+  
+# Set the CMD to your handler (could also be done as a parameter override outside of the Dockerfile)
+CMD [ "index.handler" ]
