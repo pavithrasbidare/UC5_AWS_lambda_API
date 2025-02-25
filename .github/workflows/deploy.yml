@@ -64,10 +64,10 @@ jobs:
           # Ensure .tflint.hcl exists
           if [ ! -f ".tflint.hcl" ]; then
             cat <<EOF > .tflint.hcl
-            plugin "terraform" {
-              enabled = true
-            }
-            EOF
+plugin "terraform" {
+  enabled = true
+}
+EOF
           fi
 
           # Install TFLint plugin (Terraform)
