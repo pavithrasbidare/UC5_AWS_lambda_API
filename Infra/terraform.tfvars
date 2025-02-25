@@ -1,1 +1,1 @@
-hello_world = "302263075199.dkr.ecr.us-east-1.amazonaws.com/hello_world"
+image_url = "183114607892.dkr.ecr.us-west-2.amazonaws.com/helloword-service:latest"
