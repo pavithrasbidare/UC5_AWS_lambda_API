@@ -34,7 +34,7 @@ resource "aws_iam_role_policy" "lambda_ecr_policy" {
           "ecr:GetDownloadUrlForLayer",
           "ecr:BatchGetImage"
         ],
-        Resource = "arn:aws:ecr:${var.region}:${data.aws_caller_identity.current.account_id}:repository/${aws_ecr_repository.my_repository.name}"
+        Resource = "*"
       }
     ]
   })
