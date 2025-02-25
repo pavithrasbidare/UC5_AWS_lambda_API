@@ -1,8 +1,8 @@
 resource "aws_lambda_function" "lamda_hello_world" {
-  function_name = "hello_world"
+  function_name = "patient_service"
   role          = var.lambda_role_arn
   package_type  = "Image"
-  image_uri     = var.image_name
+  image_uri     = var.patient_image_name
 
   memory_size = 512
   timeout     = 30
