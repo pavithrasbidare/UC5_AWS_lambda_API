@@ -1,4 +1,4 @@
-resource "aws_lambda_function" "lamda_hello_world" {
+resource "aws_lambda_function" "patient_service" {
   function_name = "patient_service"
   role          = var.lambda_role_arn
   package_type  = "Image"
@@ -36,7 +36,7 @@ resource "aws_apigatewayv2_integration" "lambda_integration" {
   api_id = aws_apigatewayv2_api.lambda_api.id
   integration_type   = "AWS_PROXY"
   integration_method = "POST"
-  integration_uri    = aws_lambda_function.my_lambda.invoke_arn
+  integration_uri    = aws_lambda_function.patient_service.invoke_arn
 }
 
 resource "aws_apigatewayv2_route" "lambda_route" {
@@ -48,7 +48,7 @@ resource "aws_apigatewayv2_route" "lambda_route" {
 resource "aws_lambda_permission" "api_gw" {
   statement_id  = "AllowExecutionFromAPIGateway"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.my_lambda.function_name
+  function_name = aws_lambda_function.patient_service.function_name
   principal     = "apigateway.amazonaws.com"
   source_arn = "${aws_apigatewayv2_api.lambda_api.execution_arn}/*/*"
 }
