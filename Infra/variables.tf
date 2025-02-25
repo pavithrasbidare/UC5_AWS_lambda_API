@@ -3,5 +3,4 @@
 variable "hello_world" {
   description = "The URL of the Appointment service Docker image in ECR"
   type        = string
-
 }
