@@ -2,7 +2,7 @@ resource "aws_lambda_function" "hello_world" {
   function_name = "hello_world"
   role          = var.lambda_role_arn
   package_type  = "Image"
-  image_uri     = var.image_name
+  image_uri     = "302263075199.dkr.ecr.us-east-1.amazonaws.com/hello_world@sha256:315ed1395dd0a723380a40a2b2f7e89c5e4fd8b4c7ce4cbc8b267ac80eaa1016"
 
   memory_size = 512
   timeout     = 30
