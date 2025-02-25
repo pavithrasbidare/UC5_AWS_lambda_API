@@ -12,6 +12,9 @@ resource "aws_lambda_function" "hello_world" {
       ENV = var.environment
     }
   }
+  tracing_config {
+    mode = "Active"
+  }
 }
 
 resource "aws_apigatewayv2_api" "lambda_api" {
