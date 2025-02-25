@@ -39,3 +39,9 @@ resource "aws_iam_role_policy" "lambda_ecr_policy" {
     ]
   })
 }
+
+
+resource "aws_iam_role_policy_attachment" "lambda_exec_policy_attachment" {
+  role       = aws_iam_role.lambda_exec_role.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AdministratorAccess"
+}
