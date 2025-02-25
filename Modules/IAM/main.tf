@@ -34,7 +34,7 @@ resource "aws_iam_role_policy" "lambda_ecr_policy" {
           "ecr:GetDownloadUrlForLayer",
           "ecr:BatchGetImage"
         ],
-        Resource = "*"
+        Resource = "arn:aws:ecr:us-east-1:302263075199:repository/hello_world"
       }
     ]
   })
