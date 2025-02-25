@@ -4,7 +4,7 @@ variable "region" {
   default     = "us-east-1"
 }
 
-variable "image_name"{
+variable "patient_image_name"{
 default="183114607892.dkr.ecr.us-west-2.amazonaws.com/helloword-service:latest"
 }
 
