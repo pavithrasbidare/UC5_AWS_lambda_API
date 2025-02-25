@@ -8,8 +8,8 @@ module "lamda" {
  }
 
 module "monitoring" {
-  source              = "../Modules/Monitoring"
-  lambda_function_name = module.lambda.lambda_function_name
+  source               = "../Modules/Monitoring"
+  function_name        = module.lambda.lambda_function_name
   lambda_role_name     = module.iam.lambda_role_name
   log_retention_in_days = 14
 }
