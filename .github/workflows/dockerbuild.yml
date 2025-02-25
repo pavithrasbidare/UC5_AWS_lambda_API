@@ -22,20 +22,20 @@ jobs:
       uses: aws-actions/configure-aws-credentials@v2
       with:
         role-to-assume: arn:aws:iam::302263075199:role/OIDC-Terraform
-        aws-region: us-east-1
+        aws-region: us-west-2
 
     - name: Log in to Amazon ECR
       run: |
-        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 302263075199.dkr.ecr.us-east-1.amazonaws.com
+        aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 302263075199.dkr.ecr.us-west-2.amazonaws.com
 
     - name: Create ECR repository for hello_world if it doesn't exist
       run: |
-        aws ecr describe-repositories --repository-names hello_world --region us-east-1 || \
-        aws ecr create-repository --repository-name hello_world --region us-east-1
+        aws ecr describe-repositories --repository-names hello_world --region us-west-2 || \
+        aws ecr create-repository --repository-name hello_world --region us-west-2
 
     - name: Build, Tag & Push Docker Image for hello_world
       run: |
         cd App/hello_world/
         docker build --progress=plain -t hello_world:latest -f Dockerfile .
-        docker tag hello_world:latest 302263075199.dkr.ecr.us-east-1.amazonaws.com/hello_world:latest
-        docker push 302263075199.dkr.ecr.us-east-1.amazonaws.com/hello_world:latest
+        docker tag hello_world:latest 302263075199.dkr.ecr.us-west-2.amazonaws.com/hello_world:latest
+        docker push 302263075199.dkr.ecr.us-west-2.amazonaws.com/hello_world:latest
