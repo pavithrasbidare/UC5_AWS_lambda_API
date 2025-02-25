@@ -4,12 +4,11 @@ variable "function_name" {
 }
 
 variable "lambda_role_name" {
-  description = "The name of the IAM role for the Lambda function"
+  description = "The name of the IAM role for Lambda"
   type        = string
 }
 
 variable "log_retention_in_days" {
   description = "The number of days to retain logs"
   type        = number
-  default     = 14
 }
