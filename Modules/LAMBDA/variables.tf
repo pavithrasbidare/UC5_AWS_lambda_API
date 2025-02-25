@@ -4,8 +4,8 @@ variable "region" {
   default     = "us-east-1"
 }
 
-variable "hello_world"{
-default="183114607892.dkr.ecr.us-west-2.amazonaws.com/helloword-service:latest"
+variable "image_name"{
+default="302263075199.dkr.ecr.us-east-1.amazonaws.com/hello_world:latest"
 }
 
 variable "lambda_role_arn" {
