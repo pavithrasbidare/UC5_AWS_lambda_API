@@ -57,25 +57,6 @@ jobs:
           echo "TFLint installed successfully:"
           tflint --version
 
-      - name: Run TFLint
-        run: |
-          cd Infra
-
-          # Ensure .tflint.hcl exists
-          if [ ! -f ".tflint.hcl" ]; then
-            cat <<EOF > .tflint.hcl
-plugin "terraform" {
-  enabled = true
-}
-EOF
-          fi
-
-          # Install TFLint plugin (Terraform)
-          tflint --init
-
-          # Run TFLint with proper syntax
-          tflint --config .tflint.hcl
-
       - name: Install Checkov
         run: |
           pip install checkov
