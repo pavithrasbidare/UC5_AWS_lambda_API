@@ -65,7 +65,7 @@ jobs:
       - name: Run Checkov Security Scan
         run: |
           cd Infra
-          checkov --directory . --skip-check CKV_AWS_*,CKV2_AWS_*
+          checkov --directory . --check CKV_AWS_116,CKV_AWS_108,CKV_AWS_40,CKV_AWS_21,CKV_AWS_1
 
       - name: Terraform Init
         run: terraform init
