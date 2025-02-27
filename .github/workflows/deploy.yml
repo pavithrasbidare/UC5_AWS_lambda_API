@@ -67,6 +67,12 @@ jobs:
           cd Infra
            checkov --directory . --check CKV_AWS_118,CKV_AWS_119 --skip-check CKV_AWS_116 -v > checkov_output.txt
            cat checkov_output.txt
+           echo "Contents of the current directory:"
+           ls -la
+           echo "Contents of the Infra directory:"
+           ls -la Infra
+           echo "Contents of checkov_output.txt:"
+           cat checkov_output.txt
           
       - name: Terraform Init
         run: terraform init
